@@ -1,0 +1,25 @@
+/* Configurações Gerais */
+.bg-333333 {
+    background: #333333;
+}
+
+.bg-principal{
+    background-color: #0c9aa4;
+}
+
+.bg-amarelo {
+    background-color: #ffcc43;
+}
+
+.text-amarelo {
+    color: #ffcc43;
+}
+
+::selection {
+    background: #0c9aa4;
+    color: white;
+}
+
+.img-250 {
+    width: 250px;
+}
