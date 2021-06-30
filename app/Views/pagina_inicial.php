@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Estilo Customizado -->
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="<?= base_url("css/estilo.css")?>">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="<?= base_url("css/bootstrap.css")?>">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -29,7 +29,7 @@
             <a href="index.html" class="navbar-brand d-flex align-items-end"><!-- Início Logo -->
               <h1 class=" d-flex align-items-end mr-2" style="color: #036970;">
                 <span class="mr-2">MotoGo</span>
-                <img style="width: 60px;"  src="img/logo.png" alt="">
+                <img style="width: 60px;"  src="<?= base_url("img/logo.png")?>" alt="">
               </h1>
             </a><!-- Fim Logo -->
 
