@@ -30,6 +30,6 @@ class Motoboy extends BaseController
 		$modelo = new MotoboyModel();
 		$modelo->save($dados);
 
-		redirect()->to(site_url("motoboy"));
+		return redirect()->to("motoboy");
 	}
 }
