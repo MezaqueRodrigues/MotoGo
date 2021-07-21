@@ -6,7 +6,7 @@
 <body>
 <h1>Listagem de Motoboys</h1>
                                         
-    <form method="post" action="<?php echo base_url() . "/index.php/motoboy/salvar" ?>">
+    <form method="post" action="<?php echo site_url("motoboy/salvar") ?>">
        <label for="nome">Nome</label>
        <input type="text" name="nome" id="nome" />
         <br>
