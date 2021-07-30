@@ -8,7 +8,10 @@ class Motoboy extends BaseController
 	{
 	    $crud = new GroceryCrud();
 	    $crud->setTable('motoboy');
+		$crud->setSubject("Motoboys");
+		$crud->columns(["nome", "cpf", "telefone"]);
 	    $output = $crud->render();
-		return  view('template/admin/admin_lte', (array)$output);
+		$output->header_page = "Cadastros - Motoboy";	
+		return  view('crud/index', (array)$output);
 	}
 }

@@ -50,7 +50,7 @@ $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquer
                     <input type='button' value='<?php echo $this->l('form_save_and_go_back'); ?>' id="save-and-go-back-button"  class="btn btn-large btn-warning"/>
                     <input type='button' value='<?php echo $this->l('form_cancel'); ?>' class="btn btn-large btn-danger" id="cancel-button" />
                 <?php } ?>
-                <div class='small-loading' id='FormLoading'><?php echo $this->l('form_insert_loading'); ?></div>
+                <div class='small-loading mt-3' id='FormLoading'><?php echo $this->l('form_insert_loading'); ?></div>
 
             </div>
             <!-- /.box-footer -->

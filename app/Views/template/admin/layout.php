@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>MotoGo</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,16 +13,17 @@
   <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/css/adminlte.min.css">
 
   <!-- Style Grocery Crud -->
-  <?php foreach($css_files as $file): ?>
+  <?php if (isset($css_files)){
+  foreach($css_files as $file): ?>
   <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-  <?php endforeach; ?>
+  <?php endforeach; }?>
 
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
   
-<?php include_once("menu_horizontal.php")?>
+<?= $this->include("template/admin/menu_horizontal.php")?>
 
 <?php include_once("sidebar.php")?>
 
@@ -33,7 +34,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1><?= isset($header_page) ? $header_page : "" ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -46,10 +47,8 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-
-        <?php echo $output; ?>
-     
+    <section class="content">        
+        <?= $this->renderSection('content') ?>     
     </section>
     <!-- /.content -->
   </div>
@@ -73,9 +72,13 @@
 <script src="<?= base_url() ?>/admin_lte/js/demo.js"></script>
 
 <!-- Grocery Crud JS -->
-<?php foreach($js_files as $file): ?>
+<?php 
+   if (isset($js_files)){
+   foreach($js_files as $file): ?>
     <script src="<?php echo $file; ?>"></script>
-<?php endforeach; ?>
+<?php endforeach; }?>
+
+<?= $this->renderSection('javascript') ?>   
 
 </body>
 </html>

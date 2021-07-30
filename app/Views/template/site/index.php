@@ -52,7 +52,7 @@
                       <a class="nav-link" href="quem_somos.html">Quem Somos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-info" href="login.html">Login</a>
+                    <a class="btn btn-outline-info" href="<?= base_url("home/restrito") ?>">Login</a>
                 </li>
               </ul>
             </div><!-- Início Itens Menu -->

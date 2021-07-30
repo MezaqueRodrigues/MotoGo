@@ -1,25 +1,20 @@
 <?php
-$this->set_css($this->default_theme_path . '/bootstrap/css/flexigrid.css');
-$this->set_js_lib($this->default_javascript_path . '/' . grocery_CRUD::JQUERY);
+	$this->set_css($this->default_theme_path.'/bootstrap/css/flexigrid.css');
+	$this->set_js_lib($this->default_javascript_path.'/' . \App\Libraries\GroceryCrud::JQUERY);
 
-if ($dialog_forms) {
-    $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/jquery.noty.js');
-    $this->set_js_lib($this->default_javascript_path . '/jquery_plugins/config/jquery.noty.config.js');
-    $this->set_js_lib($this->default_javascript_path . '/common/lazyload-min.js');
-}
+    $this->set_js_lib($this->default_javascript_path.'/common/list.js');
 
-$this->set_js_lib($this->default_javascript_path . '/common/list.js');
+	$this->set_js($this->default_theme_path.'/bootstrap/js/cookies.js');
+	$this->set_js($this->default_theme_path.'/bootstrap/js/flexigrid.js');
 
-$this->set_js($this->default_theme_path . '/bootstrap/js/cookies.js');
-$this->set_js($this->default_theme_path . '/bootstrap/js/flexigrid.js');
+    $this->set_js($this->default_javascript_path.'/jquery_plugins/jquery.form.min.js');
 
-$this->set_js($this->default_javascript_path . '/jquery_plugins/jquery.form.min.js');
+	$this->set_js($this->default_javascript_path.'/jquery_plugins/jquery.numeric.min.js');
+	$this->set_js($this->default_theme_path.'/bootstrap/js/jquery.printElement.min.js');
 
-$this->set_js($this->default_javascript_path . '/jquery_plugins/jquery.numeric.min.js');
-$this->set_js($this->default_theme_path . '/bootstrap/js/jquery.printElement.min.js');
+	/** Jquery UI */
+	$this->load_js_jqueryui();
 
-/** Jquery UI */
-$this->load_js_jqueryui();
 ?>
 <script type='text/javascript'>
     var base_url = '<?php echo base_url(); ?>';

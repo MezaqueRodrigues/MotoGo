@@ -4,12 +4,22 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-	public function index()
+	public function site()
 	{
-		return view('pagina_inicial');
+		$data = array("header_page"=> "Painel de Controle");
+		return  view('template/site/index', $data);
 	}
 
-	public function cadastrar(){
-		echo "Estou executando a função cadastrar do controlador home";
+	public function restrito()
+	{
+		$data = array("header_page"=> "Painel de Controle");
+		return  view('main/index', $data);
 	}
+
+	public function contato()
+	{
+		$data = array("header_page"=> "Contato");
+		return  view('main/contato', $data);
+	}
+
 }

@@ -8,8 +8,10 @@ class Empresa extends BaseController
 	{
 	    $crud = new GroceryCrud();
 	    $crud->setTable('empresa');
+		$crud->setSubject("Empresa");
 	    $output = $crud->render();
-		return  view('template/admin/admin_lte', (array)$output);
+		$output->header_page = "Cadastros - Empresas";	
+		return  view('crud/index', (array)$output);
 	}
 
 }

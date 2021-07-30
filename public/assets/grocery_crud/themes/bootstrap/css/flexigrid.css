@@ -1515,3 +1515,7 @@ input[type="submit"].btn.btn-mini {
 	margin-left: 550px;
 	z-index: 1000;
 }
+
+.tablecrud>tbody>tr>td  {
+    padding: 4px 8px;
+}
