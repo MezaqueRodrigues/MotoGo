@@ -1,4 +1,3 @@
-<?php echo $login; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -116,7 +115,9 @@
     </div>
     <script src="<?= base_url() ?>/js/login.js"></script>
     <script>
-        btnSignin.click();
+        <?php if(!session("form_login")){ ?>
+            btnSignin.click();
+        <?php } ?>
     </script>
 </body>
 </html>
