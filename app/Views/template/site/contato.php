@@ -1,18 +1,15 @@
-<?= $this->extend('template/admin/layout') ?>
+<?= $this->extend('template/site/template') ?>
 
 <?= $this->section('content') ?>
  <!-- Main content -->
- <section class="content">
+ <div class="container">
+   <h1>Contato</h1>
+   <hr>
       <div class="row">
         <div class="col-md-12">
-          <div class="card card-outline ">
-            <div class="card-header">
-              <h3 class="card-title">
-                Formulário de Contato
-              </h3>              
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body pad">
+       
+            
+          <form>
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" class="form-control" placeholder="Enter ...">
@@ -30,13 +27,13 @@
             </div>
               
             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-            </div>
-          </div>
+          
+            </form>
         </div>
         <!-- /.col-->
       </div>
       <!-- ./row -->
-    </section>
+</div>
 <?= $this->endSection() ?>
 
 

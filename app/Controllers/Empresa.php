@@ -9,6 +9,7 @@ class Empresa extends BaseController
 	    $crud = new GroceryCrud();
 	    $crud->setTable('empresa');
 		$crud->setSubject("Empresa");
+		$crud->setRelation("usuario_idusuario", "usuario", "email");
 	    $output = $crud->render();
 		$output->header_page = "Cadastros - Empresas";	
 		return  view('crud/index', (array)$output);

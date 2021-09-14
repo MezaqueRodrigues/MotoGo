@@ -55,7 +55,13 @@
                   <i class="fas fa-motorcycle nav-icon"></i>
                   <p>Motoboy</p>
                 </a>
-              </li>              
+              </li>    
+              <li class="nav-item">
+                <a href="<?= site_url("usuario/index") ?>" class="nav-link">                  
+                  <i class="fas fa-user nav-icon"></i>
+                  <p>Usuários</p>
+                </a>
+              </li>          
             </ul>
           </li>
           <li class="nav-item">
