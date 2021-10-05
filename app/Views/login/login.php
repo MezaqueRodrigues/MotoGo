@@ -46,12 +46,15 @@
                 </div><!-- social media -->
                 <!-- Cadastrar -->
                 <p class="description description-second">ou utilize seu email para o cadastro</p>
-                <form class="form" method="POST" action="<?= site_url("usuario/cadastrar") ?>">
-                    <label class="label-input" for="">
-                        <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Nome" id="nome" name="nome">
-                    </label>
-                    
+                <form class="form" method="POST" action="<?= site_url("login/cadastrar") ?>">
+                <?php if(isset($erros_cad)):?>
+                <ul class="alert-danger">
+                    <?php foreach($erros_cad as $e):?>
+                      <li><?= $e ?></li>
+                    <?php endforeach;?>
+                </ul>
+                <?php endif; ?>
+                                        
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
                         <input type="email" placeholder="Email" id="email" name="email">
@@ -61,8 +64,15 @@
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" placeholder="Senha" id="senha" name="senha">
                     </label>
-                    
-                    
+
+                    <label class="label-input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <select placeholder="Tipo" id="tipo" name="tipo">
+                            <option value="Motoboy">Motoboy</option>
+                            <option value="Empresa">Empresa</option>
+                        </select>                  
+                    </label>
+                                        
                     <button type="submit" class="btn btn-second">Cadastrar</button>        
                 </form>
             </div><!-- second column -->
@@ -93,8 +103,15 @@
                     </ul>
                 </div><!-- social media -->
                 <p class="description description-second">ou utilize seu email para o login</p>
-                <form class="form" method="POST" action="<?=site_url("usuario/entrar")?>">
-
+                
+                <form class="form" method="POST" action="<?=site_url("login/entrar")?>">
+                <?php if(isset($erros)):?>
+                <ul class="alert-danger">
+                    <?php foreach($erros as $e):?>
+                      <li><?= $e ?></li>
+                    <?php endforeach;?>
+                </ul>
+                <?php endif; ?>
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
                         <input type="email" placeholder="Email" id="email" name="email">
@@ -103,7 +120,6 @@
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" placeholder="Senha" id="senha" name="senha">
-
                     </label>
                 
                     <a class="password" href="#">Esqueceu sua senha?</a>
@@ -115,7 +131,7 @@
     </div>
     <script src="<?= base_url() ?>/js/login.js"></script>
     <script>
-        <?php if(!session("form_login")){ ?>
+        <?php if(session("form_login") or isset($erros)){ ?>
             btnSignin.click();
         <?php } ?>
     </script>

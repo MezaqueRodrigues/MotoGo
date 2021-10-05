@@ -45,19 +45,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= site_url("empresa/index") ?>" class="nav-link">
+                <a href="<?= site_url("restrito/empresa/index") ?>" class="nav-link">
                   <i class="far fa-building nav-icon"></i>
                   <p>Empresa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= site_url("motoboy/index") ?>" class="nav-link">                  
+                <a href="<?= site_url("restrito/motoboy/index") ?>" class="nav-link">                  
                   <i class="fas fa-motorcycle nav-icon"></i>
                   <p>Motoboy</p>
                 </a>
               </li>    
               <li class="nav-item">
-                <a href="<?= site_url("usuario/index") ?>" class="nav-link">                  
+                <a href="<?= site_url("restrito/usuario/index") ?>" class="nav-link">                  
                   <i class="fas fa-user nav-icon"></i>
                   <p>Usuários</p>
                 </a>
@@ -65,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="<?= site_url("restrito/entrega/index") ?>" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Entregas
@@ -80,7 +80,7 @@
                 </a>
               </li>
           <li class="nav-item">
-                <a href="<?= site_url("login/logoff") ?>" class="nav-link">                  
+                <a href="<?= site_url("login/sair") ?>" class="nav-link">                  
                   <i class="fas fa-door-closed nav-icon"></i>
                   <p>Sair</p>
                 </a>

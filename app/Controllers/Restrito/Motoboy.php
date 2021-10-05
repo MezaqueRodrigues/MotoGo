@@ -1,5 +1,6 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Restrito;
 
+use App\Controllers\BaseController;
 use App\Libraries\GroceryCrud;
 
 class Motoboy extends BaseController
@@ -9,7 +10,7 @@ class Motoboy extends BaseController
 	    $crud = new GroceryCrud();
 	    $crud->setTable('motoboy');
 		$crud->setSubject("Motoboys");
-		$crud->columns(["nome", "cpf", "telefone"]);
+		$crud->columns(["nome", "cpf", "email", "telefone"]);
 	    $output = $crud->render();
 		$output->header_page = "Cadastros - Motoboy";	
 		return  view('crud/index', (array)$output);

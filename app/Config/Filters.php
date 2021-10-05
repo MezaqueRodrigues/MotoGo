@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\Cors;
+use App\Filters\JWTAuthenticationFilter;
+use App\Filters\WebAuthenticationFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -19,6 +22,9 @@ class Filters extends BaseConfig
 		'csrf'     => CSRF::class,
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
+		'cors'     => Cors::class,
+		'auth' => JWTAuthenticationFilter::class, 
+		'webauth' => WebAuthenticationFilter::class
 	];
 
 	/**
@@ -29,6 +35,7 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
+			'cors',
 			// 'honeypot',
 			// 'csrf',
 		],
@@ -58,5 +65,16 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+		'auth' => [  //aplica o filter Auth JWT, nas URI motoboys
+			'before' => [
+				'api/*',
+		  ],
+		],
+		'webauth' => [  //aplica o filter Auth JWT, nas URI motoboys
+			'before' => [
+				'restrito/*',
+		  ],
+		]
+	];
 }

@@ -4,12 +4,7 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-
-	public function estaLogado(){
-		$session = session();
-		return $session->has("usuario");
-	}	
-		
+	
 	public function site()
 	{		
 		$data = array("header_page"=> "Painel de Controle");
@@ -43,10 +38,6 @@ class Home extends BaseController
 
 	public function restrito()
 	{
-		if (!$this->estaLogado()){
-			return redirect()->to(site_url("usuario"))->with("login", "entrar");
-		}
-
 		$data = array("header_page"=> "Painel de Controle");
 		return  view('main/index', $data);				
 	}

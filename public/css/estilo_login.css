@@ -8,6 +8,15 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.alert-danger{
+    background-color: #ff0000;
+    text-align: left;
+    padding:  5px 15px 5px 15px;
+    color: #ffffff;
+    border-radius: 5px;
+    list-style: none;
+}
+
 .container {
     display: flex;
     justify-content: center;
