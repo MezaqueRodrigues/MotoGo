@@ -55,11 +55,11 @@
                       <a class="nav-link" href="<?= base_url('home/contato') ?>">Contato</a>
                   </li>
                   <li class="nav-item mr-5">
-                      <a class="nav-link" href="<?= base_url("usuario") ?>">Cadastre-se</a>
+                      <a class="nav-link" href="<?= base_url("login") ?>">Cadastre-se</a>
                   </li>
                   
                 <li class="nav-item">
-                    <a class="btn btn-outline-info" href="<?= base_url("home/restrito") ?>">Login</a>
+                    <a class="btn btn-outline-info" href="<?= base_url("restrito/main") ?>">Login</a>
                 </li>
               </ul>
             </div><!-- Início Itens Menu -->

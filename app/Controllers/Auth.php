@@ -18,6 +18,7 @@ class Auth extends BaseController
     public function register()
     {
         $rules = [
+            'nome' => 'required|min_length[5]',
             'tipo' => 'required',
             'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[usuario.email]',
             'senha' => 'required|min_length[8]|max_length[255]'

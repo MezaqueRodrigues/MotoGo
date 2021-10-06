@@ -36,10 +36,5 @@ class Home extends BaseController
 		return  view('template/site/contato', $data);
 	}
 
-	public function restrito()
-	{
-		$data = array("header_page"=> "Painel de Controle");
-		return  view('main/index', $data);				
-	}
 
 }

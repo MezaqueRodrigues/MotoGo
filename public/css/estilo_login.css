@@ -15,6 +15,7 @@ body {
     color: #ffffff;
     border-radius: 5px;
     list-style: none;
+    font-size: 12px;
 }
 
 .container {
@@ -29,7 +30,7 @@ body {
     background-color: #fff;
     border-radius: 15px;
     width: 960px;
-    height: 500px;
+    height: 550px;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -149,7 +150,18 @@ body {
     flex-direction: column;
     width: 55%;
 }
-.form input {
+.d-none{
+    display: none;
+}
+
+.form p{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #777;
+}
+.form input, .form select{
     height: 45px;
     width: 100%;
     border: none;

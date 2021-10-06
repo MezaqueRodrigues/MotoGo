@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\CompleteProfileFilter;
 use App\Filters\Cors;
 use App\Filters\JWTAuthenticationFilter;
 use App\Filters\WebAuthenticationFilter;
@@ -24,7 +25,8 @@ class Filters extends BaseConfig
 		'honeypot' => Honeypot::class,
 		'cors'     => Cors::class,
 		'auth' => JWTAuthenticationFilter::class, 
-		'webauth' => WebAuthenticationFilter::class
+		'webauth' => WebAuthenticationFilter::class,
+		'complete_profile' => CompleteProfileFilter::class,
 	];
 
 	/**
@@ -75,6 +77,11 @@ class Filters extends BaseConfig
 			'before' => [
 				'restrito/*',
 		  ],
-		]
+		],
+		'complete_profile' => [  //aplica o filter Auth JWT, nas URI motoboys
+			'before' => [
+				'restrito/*',
+		  ],
+		],		
 	];
 }

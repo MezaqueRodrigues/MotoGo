@@ -10,7 +10,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/css/adminlte.css">
 
   <!-- Style Grocery Crud -->
   <?php if (isset($css_files)){

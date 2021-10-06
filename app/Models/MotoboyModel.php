@@ -8,7 +8,7 @@ use Exception;
 class MotoboyModel extends Model
 {
     protected $table = 'motoboy';
-    protected $allowedFields = ['nome', 'cpf','cnh','rua','numero','bairro','cidade','estado','cep','data_nascimento', 'usuario_idusuario'];
+    protected $allowedFields = ['cpf','cnh','rua','numero','bairro','cidade','estado','cep','data_nascimento', 'usuario_idusuario'];
 
     public function findMotoboyById($id)
     {
