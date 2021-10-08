@@ -1,10 +1,10 @@
-<?php namespace App\Controllers\Restrito;
+<?php namespace App\Controllers\Restrito\Empresa;
 
 use App\Controllers\BaseController;
 use App\Libraries\GroceryCrud;
 use App\Libraries\Menu;
 
-class Empresa extends BaseController
+class Perfil extends BaseController
 {
 	public function index()	
 	{
@@ -14,14 +14,12 @@ class Empresa extends BaseController
 	    $crud = new GroceryCrud();
 	    $crud->setTable('empresa');
 		$crud->setSubject("Empresa");
-		$crud->columns(["usuario_idusuario", "cnpj", "email", "telefone"]);
-		
-		if($usuario["tipo"]=="Empresa" && $crud->getState() != 'list'){
-			$crud->fieldType("usuario_idusuario", "hidden", $usuario["idusuario"]);
-		}else{
-			$crud->setRelation("usuario_idusuario", "usuario", "nome");
-		    $crud->displayAs("usuario_idusuario", "Razão Social");
-		}
+		$crud->columns(["usuario_idusuario", "cnpj", "telefone"]);			
+		$crud->fieldType("usuario_idusuario", "hidden", $usuario["idusuario"]);			
+		$crud->where("usuario_idusuario", $usuario["idusuario"] );
+		$crud->unsetDelete();
+		$crud->unsetAdd();
+		$crud->unsetBackToDatagrid();
 	    $output = $crud->render();
 		$output->header_page = Menu::isCompleteProfile()? "Cadastros - Empresas" : "Complete seu perfil para prosseguir";	
 		return  view('crud/index', (array)$output);

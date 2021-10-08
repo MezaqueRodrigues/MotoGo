@@ -10,8 +10,7 @@ class Entrega extends BaseController
 	    $crud = new GroceryCrud();
 	    $crud->setTable('entregas');
 		$crud->setSubject("Entregas");
-		$crud->unset
-		
+		//$crud->columns(["nome", "cpf", "email", "telefone"]);
 	    $output = $crud->render();
 		$output->header_page = "Cadastros - Entregas";	
 		return  view('crud/index', (array)$output);

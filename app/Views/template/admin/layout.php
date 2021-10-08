@@ -12,6 +12,14 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/css/adminlte.css">
 
+    <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url() ?>/assets/grocery_crud/themes/bootstrap/css/flexigrid.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/admin_lte/plugins/datatables/viewcreator.css">
+
+
   <!-- Style Grocery Crud -->
   <?php if (isset($css_files)){
   foreach($css_files as $file): ?>
@@ -70,6 +78,12 @@
 <script src="<?= base_url() ?>/admin_lte/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>/admin_lte/js/demo.js"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="<?= base_url() ?>/admin_lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>/admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>/admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url() ?>/admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 <!-- Grocery Crud JS -->
 <?php 
