@@ -2300,8 +2300,10 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
             $date = '';
         }
 
-        $input = "<input id='field-{$field_info->name}' name='{$field_info->name}' type='text' value='$date' maxlength='10' class='datepicker-input form-control' />
-		<a class='datepicker-input-clear' tabindex='-1'>".$this->l('form_button_clear')."</a> (".$this->ui_date_format.")";
+        $input = "<div class='d-flex '>
+            <input id='field-{$field_info->name}' name='{$field_info->name}' type='text' value='$date' maxlength='10' class='datepicker-input form-control' />
+		    <a class='datepicker-input-clear align-self-center' tabindex='-1'>".$this->l('form_button_clear')."</a> (".$this->ui_date_format.")
+          </div>";
         return $input;
     }
 

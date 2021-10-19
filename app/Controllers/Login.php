@@ -1,5 +1,8 @@
 <?php namespace App\Controllers;
 
+use App\Controllers\Api\Motoboy;
+use App\Models\EmpresaModel;
+use App\Models\MotoboyModel;
 use App\Models\UsuarioModel;
 
 class Login extends BaseController
@@ -67,6 +70,17 @@ class Login extends BaseController
 
 		$session = session();
         unset($usuario["senha"]);
+
+        if($usuario["tipo"] == "Empresa"){
+            $empresaModel = new EmpresaModel();
+            $empresa = $empresaModel->where("usuario_idusuario", $usuario["idusuario"])->first();
+            $usuario["idpapel"] = $empresa["idempresa"];
+        }else if($usuario["tipo"] == "Motoboy"){
+            $motoboyModel = new MotoboyModel();
+            $motoboy = $motoboyModel->where("usuario_idusuario", $usuario["idusuario"])->first();
+            $usuario["idpapel"] = $motoboy["id"];
+        }
+
 		$session->set("usuario", $usuario);
 		return redirect()->to(site_url("restrito/main"));
 	}

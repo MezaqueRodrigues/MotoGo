@@ -28,44 +28,9 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">             
-              <i class="nav-icon fab fa-wpforms"></i>
-              <p>
-                Cadastros
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= site_url("restrito/empresa/index") ?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Empresa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= site_url("restrito/motoboy/index") ?>" class="nav-link">                  
-                  <i class="fas fa-motorcycle nav-icon"></i>
-                  <p>Motoboy</p>
-                </a>
-              </li>    
-              <li class="nav-item">
-                <a href="<?= site_url("restrito/usuario/index") ?>" class="nav-link">                  
-                  <i class="fas fa-user nav-icon"></i>
-                  <p>Usuários</p>
-                </a>
-              </li>          
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?= site_url("restrito/entrega/index") ?>" class="nav-link">
-              <i class="nav-icon fas fa-box-open"></i>
-              <p>
-                Entregas
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li> 
+          
+          <?= view_cell('\App\Libraries\Menu::getMenuUser') ?>
+
           <li class="nav-item">
                 <a href="<?= site_url("") ?>" class="nav-link">                  
                   <i class="fas fa-globe-americas nav-icon"></i>

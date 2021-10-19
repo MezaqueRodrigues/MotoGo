@@ -39,7 +39,9 @@
             <div class="card-header pt-1 pb-1">
                 <div class="row align-items-center">
                     <div class="col-9">
+                        <?php if($subject != "Registro"):?>
                         <h5 class="card-title m-0">Lista de <?php echo $subject?></h5>  
+                        <?php endif; ?>
                     </div>
                     <div class="col-3">
                         <?php if (!$unset_add) { ?>
