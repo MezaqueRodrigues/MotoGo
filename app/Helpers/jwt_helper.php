@@ -4,6 +4,15 @@ use App\Models\UsuarioModel;
 use Config\Services;
 use Firebase\JWT\JWT;
 
+function getUserRequest($request){
+    $authenticationHeader = $request->getServer('HTTP_AUTHORIZATION');
+    $encodedToken = getJWTFromRequest($authenticationHeader);
+    $key = Services::getSecretKey();
+    $decodedToken = JWT::decode($encodedToken, $key, ['HS256']);
+    $userModel = new UsuarioModel();
+    return $userModel->where('email', $decodedToken->email)->first();
+}
+
 function getJWTFromRequest($authenticationHeader): string
 {
     if (is_null($authenticationHeader)) { //JWT está ausente

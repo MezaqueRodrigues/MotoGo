@@ -1,0 +1,33 @@
+# Usuário
+## Fazer Login: 
+    Method: POST
+    params: email e senha
+    return: json{message, user:{idusuario, nome, email, foto, tipo}, access_token}
+    http://local.codeigniter/auth/login
+
+
+## Registrar - Criar conta
+    Method: POST
+    params: nome, email, senha, tipo, foto
+    return json{message, user:{idusuario, nome, email, foto, tipo}, access_token}
+    http://local.codeigniter/auth/register
+
+#Motoboy
+##Listar todos os Motoboys
+    Method: GET
+    params: access_token
+    return json com os motoboys
+    http://local.codeigniter/api/motoboys
+
+##Cadastrar um motoboy
+    Method: POST
+    params: access_token, cpf, cnh, rua, numero, bairro, cidade, estado, cep, data_nascimento
+    return message success ou erro
+    http://local.codeigniter/api/motoboys
+
+##Mostrar dados de um único motoboy
+    Metodo GET
+    return: json motoboy
+    http://local.codeigniter/api/motoboys/23
+    *onde 23 é o id do motoboy a ser mostrado
+
