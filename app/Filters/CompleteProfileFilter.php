@@ -35,28 +35,28 @@ class CompleteProfileFilter implements FilterInterface
 		$usuario = Menu::getUser();
 
 		$urlMotoboys = array(
-			site_url("restrito/motoboy/index/add"),
-			site_url("restrito/motoboy/index/insert"),
-			site_url("restrito/motoboy/index/insert_validation")			
+			site_url("restrito/motoboy/perfil/index/add"),
+			site_url("restrito/motoboy/perfil/index/insert"),
+			site_url("restrito/motoboy/perfil/index/insert_validation")			
 		);
 
 		$urlEmpresa = array(
-			site_url("restrito/empresa/index/add"),
-			site_url("restrito/empresa/index/insert"),
-			site_url("restrito/empresa/index/insert_validation")			
+			site_url("restrito/empresa/perfil/index/add"),
+			site_url("restrito/empresa/perfil/index/insert"),
+			site_url("restrito/empresa/perfil/index/insert_validation")			
 		);
 		
 		if($usuario["tipo"]=="Motoboy" && !in_array($uri, $urlMotoboys)){
 			$model = new MotoboyModel();
 			$motoboy = $model->where("usuario_idusuario", $usuario["idusuario"])->first();
 			if(!$motoboy){
-				return redirect()->to(site_url("restrito/motoboy/index/add"));
-			}
+				return redirect()->to(site_url("restrito/motoboy/perfil/index/add"));
+			}			
 		}else if($usuario["tipo"]=="Empresa" && !in_array($uri, $urlEmpresa)){
 			$model = new EmpresaModel();
 			$empresa = $model->where("usuario_idusuario", $usuario["idusuario"])->first();
 			if(!$empresa){
-				return redirect()->to(site_url("restrito/empresa/index/add"));
+				return redirect()->to(site_url("restrito/empresa/perfil/index/add"));
 			}
 		}	
 							

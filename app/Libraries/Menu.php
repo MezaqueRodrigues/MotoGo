@@ -22,9 +22,12 @@ class Menu{
     public function getMenuUser(){
         //obtém o email do usuario logado
         $session = session();
-        $usuario = $session->get("usuario");              
-        $menu["menu"] = $this->menus($usuario["idusuario"],$usuario["idpapel"], $usuario["tipo"]);
-        return view('template/admin/itemMenu', $menu);
+        $usuario = $session->get("usuario");   
+        if(isset($usuario["idpapel"])){           
+            $menu["menu"] = $this->menus($usuario["idusuario"],$usuario["idpapel"], $usuario["tipo"]);
+            return view('template/admin/itemMenu', $menu);
+        }
+        return "";
     }
 
     public function menus($id, $idpapel, $userType){

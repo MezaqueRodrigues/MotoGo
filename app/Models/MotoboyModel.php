@@ -8,19 +8,36 @@ use Exception;
 class MotoboyModel extends Model
 {
     protected $table = 'motoboy';
-    protected $allowedFields = ['telefone','cpf','cnh','rua','numero','bairro','cidade','estado','cep','data_nascimento', 'usuario_idusuario'];
+    protected $allowedFields = [
+        'telefone',
+        'cpf',
+        'cnh',
+        'rua',
+        'numero',
+        'bairro',
+        'cidade',
+        'estado',
+        'cep',
+        'data_nascimento', 
+        'usuario_idusuario',
+        'placa_moto',
+        'sexo'
+    ];
 
     protected $validationRules    = [
         'telefone'     => 'required',
         'cpf'        => 'required|is_unique[motoboy.cpf,usuario_idusuario,{usuario_idusuario}]',
         'cnh'     => 'required|is_unique[motoboy.cnh,usuario_idusuario,{usuario_idusuario}]',
-        'rua'     => 'required|alpha_numeric_space|min_length[8]',
+        'rua'     => 'required|min_length[8]',
         'numero'     => 'required',
         'bairro'     => 'required',
         'cidade'     => 'required',
         'estado'     => 'required',
         'cep'     => 'required',
-        'data_nascimento'     => 'required|valid_date',                
+        'data_nascimento'     => 'required|valid_date',
+        "usuario_idusuario" => "required",
+        "placa_moto" => "required",
+        "sexo" =>   "required"             
     ];
 
     public function findAllMotoboyFeatures(){

@@ -31,3 +31,7 @@
     http://local.codeigniter/api/motoboys/23
     *onde 23 é o id do motoboy a ser mostrado
 
+#http => GET
+#        POST
+#        PUT
+#        DELETE

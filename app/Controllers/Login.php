@@ -36,7 +36,7 @@ class Login extends BaseController
         if ($file->isValid() && !$file->hasMoved()) {
             $name = $file->getRandomName();
             $file->move("photos", $name);
-            $input["foto"] = $name;
+            $input["foto"] = "photos/$name";
         }
         
        $userModel = new UsuarioModel();
@@ -78,7 +78,9 @@ class Login extends BaseController
         }else if($usuario["tipo"] == "Motoboy"){
             $motoboyModel = new MotoboyModel();
             $motoboy = $motoboyModel->where("usuario_idusuario", $usuario["idusuario"])->first();
-            $usuario["idpapel"] = $motoboy["id"];
+            if(isset($motoboy["id"])){
+                $usuario["idpapel"] = $motoboy["id"];
+            }            
         }
 
 		$session->set("usuario", $usuario);

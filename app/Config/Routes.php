@@ -33,7 +33,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::site');
+$routes->get("api/motoboys/user/(.*)", "Api\Motoboy::getByUserId/$1");
 $routes->resource('api/motoboys', ['controller' =>'Api\Motoboy']);
+
+
+$routes->post("/app/login", "Auth::login");
 
 /*
  * --------------------------------------------------------------------

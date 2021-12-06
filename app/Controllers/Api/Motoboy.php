@@ -27,16 +27,32 @@ class Motoboy extends BaseApiResourceController
             return $this->failNotFound('Não encontrado o motoboy com o ID= '.$id);
         }
     }
+
+    public function getByUserId($id = null)
+    {
+        $model = new MotoboyModel();
+        $data = $model->where(['usuario_idusuario' => $id])->first();
+        if($data){
+            return $this->respond($data);
+        }else{
+            return $this->failNotFound('Não foi encontrado o Motoboy, cujo idUsuario é '.$id);
+        }
+    }
  
     // cria um novo motoboy no banco de dados
     public function create()
     {       
         $model = new MotoboyModel();
-        $data = $this->getRequestInput();
+        $data = $this->request->getJSON(true);
         $data["usuario_idusuario"] = $this->user_request["idusuario"];
-                
-        if ($model->insert($data)==true) {
-            return $this->respond(["message" => "Motoboy inserido com sucesso"]);
+        $id = $model->insert($data, true);       
+        if ($id) {
+            $motoboy = $model->find($id);
+            return $this->respond([
+                "message" => "Motoboy inserido com sucesso",
+                "status" => 201,
+                "motoboy" => $motoboy 
+            ]);
         }else{
             return $this->failValidationErrors($model->errors());
         }        

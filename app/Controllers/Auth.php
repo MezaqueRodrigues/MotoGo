@@ -70,11 +70,11 @@ class Auth extends BaseController
 
         $errors = [
             'senha' => [
-                'validateUser' => 'Invalid login credentials provided'
+                'validateUser' => 'Email e senha inválidos'
             ]
         ];
 
-        $input = $this->getRequestInput($this->request);
+        $input = $this->request->getJSON(true);
 
         if (!$this->validateRequest($input, $rules, $errors)) {
             return $this->getResponse(
