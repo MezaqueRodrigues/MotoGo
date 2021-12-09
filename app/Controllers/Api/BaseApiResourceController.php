@@ -16,6 +16,7 @@ class BaseApiResourceController extends ResourceController
 		parent::initController($request, $response, $logger);
         helper('jwt');
         $this->user_request = getUserRequest($request);       
+		
     }
 
 	public function getResponse(array $responseBody,  int $code = ResponseInterface::HTTP_OK)

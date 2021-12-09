@@ -21,18 +21,26 @@ class Auth extends BaseController
             'nome' => 'required|min_length[5]',
             'tipo' => 'required',
             'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[usuario.email]',
-            'senha' => 'required|min_length[8]|max_length[255]',
-            'foto' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]',
+            'senha' => 'required|min_length[8]|max_length[255]',            
         ];
 
-        $input = $this->getRequestInput($this->request);
+        //'foto' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]',
+        $input = $this->request->getJSON(true);
         if (!$this->validateRequest($input, $rules)) {
             return $this->getResponse(
                 $this->validator->getErrors(),
                 ResponseInterface::HTTP_BAD_REQUEST
             );
         }
+        $userModel = new UsuarioModel();
+        $userModel->save($input);
+        return $this->getJWTForUser(
+            $input['email'],
+            ResponseInterface::HTTP_CREATED
+        );        
+    }
 
+    public function upload(){
         //faz o upload
         $file = $this->request->getFile('foto');
         $profile_image = $file->getName();
@@ -43,12 +51,7 @@ class Auth extends BaseController
 
         if ($file->move("photos/", $newfilename)) {
             $input["foto"] = "photos/" . $newfilename;
-            $userModel = new UsuarioModel();
-            $userModel->save($input);
-            return $this->getJWTForUser(
-                $input['email'],
-                ResponseInterface::HTTP_CREATED
-            );
+            //salvar nome da foto no db
         } else {
             return $this->getResponse(
                 ["erro" => "ocorreu um erro inesperado ao salvar a foto"],
@@ -93,7 +96,9 @@ class Auth extends BaseController
             unset($user['senha']);
 
             helper('jwt');
-            $user["foto"] = base_url($user["foto"]);
+            if(isset($user["foto"])){
+                $user["foto"] = base_url($user["foto"]);
+            }            
             return $this
                 ->getResponse(
                     [

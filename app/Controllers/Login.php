@@ -63,7 +63,7 @@ class Login extends BaseController
         $model = new UsuarioModel();
         $usuario = $model->where("email", $this->request->getPost("email"))->first();
 
-        if(!password_verify($this->request->getPost("senha"), $usuario["senha"])){
+        if((!isset($usuario["senha"])) || (!password_verify($this->request->getPost("senha"), $usuario["senha"]))){
             $dados["erros"] = array("senha inválida");
             return view("login/login", $dados);
         }

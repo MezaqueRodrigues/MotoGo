@@ -34,10 +34,14 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::site');
 $routes->get("api/motoboys/user/(.*)", "Api\Motoboy::getByUserId/$1");
+$routes->get("api/empresas/user/(.*)", "Api\Empresa::getByUserId/$1");
 $routes->resource('api/motoboys', ['controller' =>'Api\Motoboy']);
+$routes->resource('api/empresas', ['controller' =>'Api\Empresa']);
+$routes->resource('api/encomendas', ['controller' =>'Api\Encomenda']);
 
 
 $routes->post("/app/login", "Auth::login");
+$routes->post("/app/register", "Auth::register");
 
 /*
  * --------------------------------------------------------------------

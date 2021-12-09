@@ -14,7 +14,26 @@ class EncomendaModel extends Model
 	protected $returnType           = 'array';
 	protected $useSoftDeletes       = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = [ 'idencomendas', 'descricao_produto', 'endereco_retirada', 'endereco_entrega', 'peso', 'dimensoes_produto', 'valor_entrega', 'status', 'empresa_idempresa', ];
+	protected $allowedFields        = [ 
+				'descricao_produto' ,
+				'retirada_rua' ,
+				'retira_numero' ,
+				'retirada_bairro' ,
+				'retirada_estado' ,
+				'retirada_cidade' ,
+				'retirada_cep' ,
+				'entrega_rua' ,
+				'entrega_numero' ,
+				'entrega_bairro' ,
+				'entrega_estado' ,
+				'entrega_cidade' ,
+				'entrega_cep' ,
+				'peso',
+				'dimensoes_produto' ,
+				'valor_entrega' ,
+				'status' ,
+				'empresa_idempresa'
+	 ];
 
 	// Dates
 	protected $useTimestamps        = false;
@@ -39,4 +58,7 @@ class EncomendaModel extends Model
 	protected $afterFind            = [];
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
+
+
+	
 }
