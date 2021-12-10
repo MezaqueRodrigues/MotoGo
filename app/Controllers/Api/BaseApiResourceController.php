@@ -15,8 +15,14 @@ class BaseApiResourceController extends ResourceController
 	{
 		parent::initController($request, $response, $logger);
         helper('jwt');
-        $this->user_request = getUserRequest($request);       
-		
+        $this->user_request = getUserRequest($request);  
+		if ($this->user_request["tipo"] == "Motoboy"){
+			$modelMotoboy = new \App\Models\MotoboyModel();
+			$this->motoboy = $modelMotoboy->where("usuario_idusuario", $this->user_request["idusuario"])->first();
+		}else if($this->user_request["tipo"] == "Empresa"){
+			$modelEmpresa = new \App\Models\EmpresaModel();
+			$this->empresa = $modelEmpresa->where("usuario_idusuario", $this->user_request["idusuario"])->first();
+		}  
     }
 
 	public function getResponse(array $responseBody,  int $code = ResponseInterface::HTTP_OK)

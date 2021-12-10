@@ -14,11 +14,11 @@ class Encomenda extends BaseController
 	    $crud = new GroceryCrud();
 	    $crud->setTable('encomendas');
 		$crud->columns(["descricao_produto", "valor_entrega", "endereco_entrega", "status"]);
-		$crud->displayAs("descricao_produto", "Descrição do produto");
-		$crud->displayAs("endereco_retirada", "Endereço para retirada");
-		$crud->displayAs("endereco_entrega", "Endereço para entrega");
-		$crud->displayAs("dimensoes_produto", "Dimensões do produto");
-		$crud->fields(["descricao_produto","peso", "dimensoes_produto", "endereco_retirada", "endereco_entrega", "empresa_idempresa", "valor_entrega"]);
+		//$crud->displayAs("descricao_produto", "Descrição do produto");
+		//$crud->displayAs("endereco_retirada", "Endereço para retirada");
+		//$crud->displayAs("endereco_entrega", "Endereço para entrega");
+		//$crud->displayAs("dimensoes_produto", "Dimensões do produto");
+		//$crud->fields(["descricao_produto","peso", "dimensoes_produto", "endereco_retirada", "endereco_entrega", "empresa_idempresa", "valor_entrega"]);
 		$crud->fieldType("empresa_idempresa", "hidden", $usuario["idpapel"]);	
 		$crud->where("empresa_idempresa", $usuario["idpapel"] );	
 		$crud->fieldType("peso", "integer");

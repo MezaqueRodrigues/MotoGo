@@ -37,7 +37,11 @@ $routes->get("api/motoboys/user/(.*)", "Api\Motoboy::getByUserId/$1");
 $routes->get("api/empresas/user/(.*)", "Api\Empresa::getByUserId/$1");
 $routes->resource('api/motoboys', ['controller' =>'Api\Motoboy']);
 $routes->resource('api/empresas', ['controller' =>'Api\Empresa']);
-$routes->resource('api/encomendas', ['controller' =>'Api\Encomenda']);
+$routes->resource('api/empresa/encomendas', ['controller' =>'Api\Empresa\Encomenda']);
+
+
+$routes->get('api/motoboy/encomendas/novas', "Api\Motoboy\Encomenda::novas");
+$routes->get('api/motoboy/candidatar/entrega/(.*)', "Api\Motoboy\Encomenda::candidatar/$1");
 
 
 $routes->post("/app/login", "Auth::login");
