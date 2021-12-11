@@ -39,6 +39,7 @@ class Menu{
             "Encomenda" => array("nome" => "Solicitar Entrega", "icone" => "fas fa-box-open", "url" => "restrito/empresa/encomenda/index"),
             "Encomenda_Entrega" => array("nome" => "Encomendas disponíveis", "icone" => "fas fa-box", "url" => "restrito/motoboy/encomendas/disponiveis"),
             "Minhas_Entregas" => array("nome" => "Minhas Entregas", "icone" => "fas fa-truck", "url" => "restrito/motoboy/entregas/minhas"),
+            "Alterar_Foto" => array("nome" => "Alterar Foto", "icone" => "fas fa-camera", "url" => "restrito/empresa/perfil/index/edit/$idpapel")
         );
         $MenuUsuario = array(
             "Motoboy" => array($links["Encomenda_Entrega"],$links["Minhas_Entregas"],  $links["Motoboy"], $links["Usuario"]),

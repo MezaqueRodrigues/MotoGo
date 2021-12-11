@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UsuarioModel;
+use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -10,11 +11,8 @@ use ReflectionException;
 
 class Auth extends BaseController
 {
-    /**
-     * Register a new user
-     * @return Response
-     * @throws ReflectionException
-     */
+    use ResponseTrait;
+
     public function register()
     {
         $rules = [
@@ -27,10 +25,7 @@ class Auth extends BaseController
         //'foto' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]',
         $input = $this->request->getJSON(true);
         if (!$this->validateRequest($input, $rules)) {
-            return $this->getResponse(
-                $this->validator->getErrors(),
-                ResponseInterface::HTTP_BAD_REQUEST
-            );
+            return $this->fail($this->validator->getErrors());
         }
         $userModel = new UsuarioModel();
         $userModel->save($input);
@@ -102,7 +97,7 @@ class Auth extends BaseController
             return $this
                 ->getResponse(
                     [
-                        'message' => 'Usuario autenticado com sucesso',
+                        'messages' => 'Usuario autenticado com sucesso',
                         'user' => $user,
                         'access_token' => getSignedJWTForUser($emailAddress)
                     ]

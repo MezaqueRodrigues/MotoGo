@@ -41,6 +41,17 @@ class UsuarioModel extends Model
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
+	public function getUsuario($idusuario){
+		$usuario = $this->find($idusuario);
+		if ($usuario["foto"]){
+		    $usuario["foto"] = base_url($usuario["foto"]);
+		}else{
+			unset($usuario["foto"]);
+		}
+		unset($usuario["senha"]);
+		return $usuario;
+	}
+
 	protected function beforeInsert(array $data): array
     {
         return $this->getUpdatedDataWithHashedPassword($data);

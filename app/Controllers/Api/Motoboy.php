@@ -8,6 +8,12 @@ class Motoboy extends BaseApiResourceController
 {
     use ResponseTrait;
 
+    public function salvarfoto(){
+        $foto = file_get_contents("php://input");
+        file_put_contents("photos/umafoto.jpg", $foto);
+        return $this->respond(array("foto"=>"ok"), 200);
+    }
+    
 	// pega todos os motoboys
     public function index()
     {        

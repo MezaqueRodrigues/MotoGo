@@ -11,7 +11,19 @@ class Encomenda extends BaseApiResourceController
 	
 	public function index()
 	{
-		$encomendas = $this->model->where("empresa_idempresa", $this->empresa["idempresa"])->findAll();
+		$encomendas = $this->model
+		       ->where("empresa_idempresa", $this->empresa["idempresa"])
+			   ->findAll();
+		return $this->respond($encomendas);
+	}
+
+	public function pendentes(){
+		$encomendas = $this->model->findEncomendasPendentesEmpresa($this->empresa["idempresa"]);
+		return $this->respond($encomendas);
+	}
+
+	public function finalizadas(){
+		$encomendas = $this->model->findEncomendasFinalizadasEmpresa($this->empresa["idempresa"]);
 		return $this->respond($encomendas);
 	}
 	
